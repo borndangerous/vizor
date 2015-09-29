@@ -56,8 +56,11 @@ function Application() {
 	this.dispatcher = new Flux.Dispatcher()
 	this.undoManager = new UndoManager()
 	this.graphApi = new GraphApi(this.undoManager)
+	
+	this.fluxAssetStore = new E2.FluxAssetStore()
 	this.graphStore = new GraphStore()
 	this.peopleStore = new PeopleStore()
+	
 	this.peopleManager = new PeopleManager(this.peopleStore, $('#peopleTab'))
 
 	// Make the UI visible now that we know that we can execute JS
@@ -1997,6 +2000,8 @@ Application.prototype.onCoreReady = function(loadGraphUrl) {
 
 	E2.ui.init(E2);
 	this.presetManager = new PresetManager('/presets')
+
+	this.fluxAssetStore.init()
 
 	that.setupPeopleEvents()
 	that.setupStoreListeners()

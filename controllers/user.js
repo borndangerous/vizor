@@ -88,6 +88,20 @@ function parseErrors(errors) {
  	});
  };
 
+exports.checkUserName = function(req, res, next) {
+  User.findOne({ username: req.body.username },
+    function(err, existingUser) {
+      if (err)
+        return next(err)
+
+      if (!existingUser)
+        return res.json({ ok: true })
+
+      return res.status(409).end()
+    }
+  )
+}
+
 /**
  * POST /signup
  * Create a new local account.
@@ -99,7 +113,6 @@ function parseErrors(errors) {
  	req.assert('username', 'Username is not valid').isAlphanumeric();
  	req.assert('email', 'Email is not valid').isEmail();
  	req.assert('password', 'Password must be at least 4 characters long').len(4);
- 	req.assert('confirmPassword', 'Passwords do not match').equals(req.body.password);
 
  	var errors = req.validationErrors();
 

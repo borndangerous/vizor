@@ -2,7 +2,8 @@
 
 
 VizorUI.prototype.setupEventHandlers = function(e2, dom) {
-	if (typeof e2 == 'undefined') return false;
+	if (typeof e2 === 'undefined')
+		return false;
 	dom = dom || this.dom;
 	e2.app.openPresetSaveDialog = this.openPresetSaveDialog.bind(e2);
 
@@ -39,6 +40,11 @@ VizorUI.prototype.init = function(e2) {	// normally the global E2 object
 	var dom = this.dom;
 	dom.presetsLib.movable();
 	dom.assetsLib.movable();
+
+	this.assetBrowserView = 
+		new E2.AssetBrowserView(dom.assetsLib)
+	
+	this.assetBrowserView.init()
 
 	var chatTop = $(window).height() - $('.chat-users').height() - $('.bottom-panel').height() - 40;
 	if (chatTop<($('.editor-header').height()+$('#breadcrumb').height())) {
@@ -191,6 +197,7 @@ VizorUI.prototype.onBtnPresetsClicked = function() {
 VizorUI.prototype.onBtnAssetsClicked = function() {
 	if (this.isVisible())
 		this.dom.assetsLib.toggle().toggleClass('uiopen');
+
 	this.syncVisibility();
 }
 
