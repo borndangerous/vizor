@@ -11,14 +11,22 @@ AssetBrowserView.prototype.init = function() {
 
 AssetBrowserView.prototype.renderCategory = 
 function(categoryName) {
-	var assets = E2.app.fluxAssetStore.list(categoryName)
 	var tpl = E2.views.assetBrowser.assetsFrame
+	var username = E2.models.user.get('username');
+	var myAssets = E2.app.fluxAssetStore
+		.listByUser(username, categoryName)
+	var systemAssets = E2.app.fluxAssetStore
+		.listByUser('system', categoryName)
+
 	var $target = $('#'+categoryName+'Tab')
 
+	var groups = [
+		{ groupTitle: 'Yours', assets: myAssets },
+		{ groupTitle: 'System', assets: systemAssets },
+	]
+
 	var html = tpl({
-		categoryName: categoryName,
-		groupTitle: 'Yours',
-		assets: assets
+		groups
 	})
 
 	$target.empty().append(html)

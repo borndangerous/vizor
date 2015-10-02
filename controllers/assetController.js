@@ -23,8 +23,15 @@ AssetController.prototype.validate = function(req, res, next) {
 
 // GET /:model
 AssetController.prototype.userIndex = function(req, res, next) {
-	this._service.findByCreatorId(req.session.userId)
-	.then(function(list) {
+	var dfd 
+
+	if (req.params.username === 'system') {
+		dfd = this._service.findByCreatorName(req.params.username)
+	} else {
+		dfd = this._service.findByCreatorId(req.session.userId)
+	}
+	
+	dfd.then(function(list) {
 		res.json(list)
 	})
 	.catch(next)
@@ -38,23 +45,20 @@ AssetController.prototype.index = function(req, res, next) {
 	.catch(next)
 }
 
-AssetController.prototype._parseTags = function(tags)
-{
+AssetController.prototype._parseTags = function(tags) {
 	if (!tags || !tags.length)
 		return []
 
 	if (!Array.isArray(tags))
 		tags = tags.split(' ')
 
-	return tags.map(function(tag)
-	{
+	return tags.map(function(tag) {
 		if (tag[0] !== '#')
 			return '#' + tag
 
 		return tag
 	})
-	.filter(function(tag)
-	{
+	.filter(function(tag) {
 		return tag.length > 0
 	})
 
@@ -74,7 +78,6 @@ AssetController.prototype._makeGridFsPath = function(req, path) {
 	var file = req.files.file
 	return '/'+this._modelName+'/'+file.sha1+fsPath.extname(file.path)
 }
-
 
 // eg. GET /:username/presets
 AssetController.prototype.findByCreatorName = function(req, res, next) {

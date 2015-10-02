@@ -16,7 +16,8 @@ FluxAssetStore.prototype = Object.create(EventEmitter.prototype)
 FluxAssetStore.prototype.init =
 function init() {
 	var that = this
-	var username = E2.models.user.get('username');
+	var username = E2.models.user.get('username')
+	that.collections[username] = {};
 
 	['scene', 'image', 'audio', 'video']
 	.map(function(modelName) {
@@ -24,28 +25,13 @@ function init() {
 			idAttribute: '_id'
 		})
 
-		var c = Backbone.Collection.extend({
-			model: that.models[modelName]
-		})
-
-		that.collections[modelName] = new c()
-
 		that.getAssetsByUsernameAndModel(username, modelName)
-		.then(function(list) {
-			list = list.map(function(item) {
-				item.name = basename(item.path)
-				return item
-			})
-
-			that.collections[modelName].set(list)
-
-			that.emit('changed', modelName, list)
-		})
+		that.getAssetsByUsernameAndModel('system', modelName)
 	})
 }
 
-FluxAssetStore.prototype.list = function(modelName) {
-	return this.collections[modelName].toJSON()
+FluxAssetStore.prototype.listByUser = function(userName, modelName) {
+	return this.collections[userName][modelName].toJSON()
 }
 
 FluxAssetStore.prototype.get =
@@ -54,11 +40,29 @@ function(modelName, id) {
 }
 
 FluxAssetStore.prototype.getAssetsByUsernameAndModel =
-function(username, model) {
+function(username, modelName) {
+	var that = this
 	var dfd = when.defer()
+
+	var Collection = Backbone.Collection.extend({
+		model: that.models[modelName]
+	})
+
+	if (!that.collections[username])
+		that.collections[username] = {}
+
+	that.collections[username][modelName] = new Collection()
+
 	if (username) {
-		$.get('/'+username+'/assets/'+model+'.json', function(list) {
-			dfd.resolve(list)
+		$.get('/'+username+'/assets/'+modelName+'.json', function(list) {
+			list = list.map(function(item) {
+				item.name = basename(item.path)
+				return item
+			})
+
+			that.collections[username][modelName].set(list)
+
+			that.emit('changed', modelName, list)
 		})
 	} else {
 		dfd.resolve([])
