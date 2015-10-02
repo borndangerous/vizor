@@ -1,3 +1,16 @@
+<svg style="display:none;">
+	<symbol id="logo-mini" viewBox="0 0 24 24">
+		<path d="M12.5,23.5C6.159,23.5,1,18.341,1,12C1,5.659,6.159,0.5,12.5,0.5S24,5.659,24,12 C24,18.341,18.841,23.5,12.5,23.5z M12.5,1.5C6.71,1.5,2,6.21,2,12c0,5.79,4.71,10.5,10.5,10.5S23,17.79,23,12 C23,6.21,18.29,1.5,12.5,1.5z"/>
+		<path d="M8.719,8.719c-0.173,0-0.342-0.09-0.435-0.252l-2.75-4.813C5.397,3.415,5.48,3.109,5.721,2.972 c0.236-0.136,0.544-0.056,0.683,0.186l2.75,4.813C9.29,8.21,9.207,8.516,8.967,8.653C8.889,8.698,8.804,8.719,8.719,8.719z"/>
+		<path d="M16.281,8.719c-0.085,0-0.17-0.021-0.248-0.066c-0.24-0.137-0.323-0.442-0.187-0.682l2.75-4.813 c0.138-0.242,0.444-0.322,0.683-0.186c0.24,0.137,0.323,0.442,0.187,0.682l-2.75,4.813C16.623,8.628,16.454,8.719,16.281,8.719z"/>
+		<path d="M5.969,21.094c-0.085,0-0.17-0.021-0.248-0.065c-0.24-0.138-0.323-0.443-0.187-0.683l2.75-4.813 c0.138-0.24,0.444-0.321,0.683-0.187c0.24,0.138,0.323,0.443,0.187,0.683l-2.75,4.813C6.311,21.003,6.142,21.094,5.969,21.094z"/>
+		<path d="M19.031,21.094c-0.173,0-0.342-0.091-0.435-0.252l-2.75-4.813c-0.137-0.239-0.054-0.545,0.187-0.683 c0.236-0.135,0.544-0.054,0.683,0.187l2.75,4.813c0.137,0.239,0.054,0.545-0.187,0.683C19.201,21.072,19.116,21.094,19.031,21.094z" />
+		<path d="M15.93,7.875H9.07c-2.278,0-4.133,1.847-4.133,4.125c0,2.273,1.851,4.125,4.133,4.125h6.859 c2.278,0,4.133-1.847,4.133-4.125C20.063,9.727,18.212,7.875,15.93,7.875z M15.93,15.125H9.07c-1.728,0-3.133-1.402-3.133-3.125 S7.343,8.875,9.07,8.875h6.859c1.728,0,3.133,1.402,3.133,3.125S17.657,15.125,15.93,15.125z"/>
+	</symbol>
+	<symbol id="icon-linkedin" viewBox="0 0 32 32">
+		<path fill-rule="evenodd" clip-rule="evenodd" d="M12.271,22.619H8.407v-9.905h3.864V22.619z M10.332,11.19h-0.022 c-1.167,0-1.922-0.9-1.922-1.891c0-1.013,0.778-1.837,1.968-1.837c1.191,0,1.923,0.852,1.946,1.864 C12.3,10.317,11.545,11.19,10.332,11.19z M19.226,15.762c-0.854,0-1.546,0.683-1.546,1.524v5.333h-3.863c0,0,0.046-9.143,0-9.905 h3.863v1.132c0,0,1.197-1.1,3.044-1.1c2.288,0,3.911,1.633,3.911,4.803v5.07h-3.863v-5.333 C20.771,16.444,20.079,15.762,19.226,15.762z M16,30c7.732,0,14-6.268,14-14S23.732,2,16,2C8.268,2,2,8.268,2,16S8.268,30,16,30z"/>
+	</symbol>
+</svg>
 <div class="stage--front">
 	<canvas
 		id="webgl-canvas"
@@ -15,65 +28,88 @@
 			<img src="images/vizor_logo.svg" id="logo">
 			
 			<h2 class="lead">
-				Build compelling VR experiences right in your browser.
+				Create and share VR content in your browser
 			</h2>
 			
-			<h2 class="thin white">
-				<a class="" href="/edit">Get Started</a>
-			</h2>
+			<a class="launch-button" href="/edit">Get Started</a>
+		</div>
+	</div>
+</div>
+<div class="about-team">
+	<h3>The Team</h3>
+	<div class="team-container">
+		<div class="team-member">
+			<div class="member-pic">
+				<img src="/images/home/antti.jpg" title="View info" />
+				<div class="pic-rollover">
+					<svg class="icon"><use xlink:href="#icon-linkedin"></use></svg>
+				</div>
+			</div>
+			<a href="https://fi.linkedin.com/in/anttijadertpolm" target="_blank" alt="View info" class="person-name profile-link">Antti Jäderholm</a>
+			<span class="person-position">CEO</span>
+		</div>
+		<div class="team-member">
+			<div class="member-pic">
+				<img src="/images/home/jaakko.jpg" title="View info" />
+				<div class="pic-rollover">
+					<svg class="icon"><use xlink:href="#icon-linkedin"></use></svg>
+				</div>
+			</div>
+			<a href="http://linkedin.com/in/kschzt" target="_blank" alt="View info" class="person-name profile-link">Jaakko Manninen</a>
+			<span class="person-position">CTO</span>
+		</div>
+		<div class="team-member">
+			<div class="member-pic">
+				<img src="/images/home/kaarlo.jpg" title="View info" />
+				<div class="pic-rollover">
+					<svg class="icon"><use xlink:href="#icon-linkedin"></use></svg>
+				</div>
+			</div>
+			<a href="http://linkedin.com/in/kaarlo" target="_blank" alt="View info" class="person-name profile-link">Kaarlo Kananen</a>
+			<span class="person-position">VP PRODUCT DEVELOPMENT</span>
+		</div>
+		<div class="team-member">
+			<div class="member-pic">
+				<img src="/images/home/wendell.jpg" title="View info" />
+				<div class="pic-rollover">
+					<svg class="icon"><use xlink:href="#icon-linkedin"></use></svg>
+				</div>
+			</div>
+			<a href="#" target="_blank" alt="View info" class="person-name profile-link">Wendell Davis</a>
+			<span class="person-position">CHIEF PRODUCT OFFICER</span>
+		</div>
+		<div class="team-member">
+			<div class="member-pic">
+				<img src="/images/home/matt.jpg" title="View info" />
+				<div class="pic-rollover">
+					<svg class="icon"><use xlink:href="#icon-linkedin"></use></svg>
+				</div>
+			</div>
+			<a href="#" target="_blank" alt="View info" class="person-name profile-link">MAtt Innes</a>
+			<span class="person-position">CREATIVE DIRECTOR</span>
+		</div>
+		<div class="team-member">
+			<div class="member-pic">
+				<img src="/images/home/georgi.jpg" title="View info" />
+				<div class="pic-rollover">
+					<svg class="icon"><use xlink:href="#icon-linkedin"></use></svg>
+				</div>
+			</div>
+			<a href="#" target="_blank" alt="View info" class="person-name profile-link">Georgi Marinov</a>
+			<span class="person-position">FRONT END LEAD</span>
 		</div>
 	</div>
 </div>
 
 <footer class="footer">
-	<div class="footer-text">
-		<a href="https://www.youtube.com/channel/UClYzX_mug6rxkCqlAKdDJFQ">YouTube Tutorials</a> <span>&middot;</span>
-		<a href="https://twitter.com/Vizor_VR">Twitter</a> <span>&middot;</span>
-		<a href="https://github.com/vizorvr/vizor-create">GitHub</a> <span>&middot;</span>
-		<a href="mailto:info@vizor.io">E-mail us</a> <span>&middot;</span>
-		<a href="https://docs.google.com/document/d/1L87rs9baSoR4PfOZ2cY9BFp3Pb43y8cFvS93k1HLk60/edit?usp=sharing">Attributions</a>
-		<span>&middot;</span>
-		<a href="https://docs.google.com/document/d/172dcWVz8bSEDxS_y2InXpqWhVvbM7w1Z9MSp1-Lw1rIc/edit?usp=sharing">Terms & Privacy</a>
-	</div>
+	<a href="https://www.youtube.com/channel/UClYzX_mug6rxkCqlAKdDJFQ">YouTube Tutorials</a> <span class="links-separator">&middot;</span>
+	<a href="https://twitter.com/Vizor_VR">Twitter</a> <span class="links-separator">&middot;</span>
+	<a href="https://github.com/vizorvr/vizor-create">GitHub</a>
+	<svg class="logo-mini"><use xlink:href="#logo-mini"></use></svg>
+	<a href="mailto:info@vizor.io">E-mail us</a> <span class="links-separator">&middot;</span>
+	<a href="https://docs.google.com/document/d/1L87rs9baSoR4PfOZ2cY9BFp3Pb43y8cFvS93k1HLk60/edit?usp=sharing">Attributions</a>
+	<span class="links-separator">&middot;</span>
+	<a href="https://docs.google.com/document/d/172dcWVz8bSEDxS_y2InXpqWhVvbM7w1Z9MSp1-Lw1rIc/edit?usp=sharing">Terms & Privacy</a>
 </footer>
 
-<script type="text/javascript">
-
-	var $canvas = $('#webgl-canvas')
-	var $window = $(window)
-	var $stage = $('.stage--front')
-	var footerHeight = 76
-
-	window.Vizor = {
-		hideWebVRButton: true
-	}
-
-	function onResize() {
-		setTimeout(function() {
-			var width = $window.width()
-			var height = $window.height() - footerHeight
-			var devicePixelRatio = window.devicePixelRatio || 1;
-			var pixelRatioAdjustedWidth = devicePixelRatio * width;
-			var pixelRatioAdjustedHeight = devicePixelRatio * height;
-
-			$canvas[0].width = pixelRatioAdjustedWidth
-			$canvas[0].height = pixelRatioAdjustedHeight
-			$stage.css('width', width + 'px')
-			$stage.css('height', height + 'px')
-
-			E2.core.emit('resize')
-		}, 20)
-	}
-
-	$(window).on('resize', onResize)
-	$(window).on('vizorLoaded', function() {
-		E2.app.calculateCanvasArea = function() {
-			return {
-				width: $window.width(),
-				height: $window.height()
-			}
-		}
-
-		onResize()
-	})
-</script>
+<script type="text/javascript" src="/scripts/homepage.js"></script>

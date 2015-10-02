@@ -7,12 +7,15 @@
 
 html {
   color: white;
-  font-family: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: "Source Sans Pro", "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-size: 23px;
 }
 
 body {
   width: 100%;
+  min-width: 320px;
+  padding-bottom: 0;
+  background: #f5f5f5;
   text-rendering:optimizeLegibility; 
   -webkit-font-smoothing: antialiased;
   font-smoothing: antialiased;
@@ -22,6 +25,8 @@ body {
 .stage--front {
   position: relative;
   width: 100%;
+  min-width: 320px;
+  overflow: hidden;
 }
 
 .stage--front canvas {
@@ -37,10 +42,6 @@ body {
   padding: 100px 0 100px 0;
   position: relative;
   width: 700px;
-}
-
-h2 {
-  font-weight: 400;
 }
 
 .text-center {
@@ -64,177 +65,287 @@ h2 {
 }
 
 .lead {
-  font-size: 38px;
-  padding: 30px;
-  padding-top: 50px;
-  padding-bottom: 114px;
-  max-width: 640px;
+  padding: 20px 30px 40px;
+  max-width: 560px;
   margin: 0 auto;
-  font-weight: normal;
+  font-size: 24px;
+  font-weight: 300;
+  line-height: 32px;
 }
 
-h2 a {
-  font-size: 28px;
-  padding: 10px 80px 12px 80px; 
-  line-height: 28px;
-  border-radius: 64px;
+.launch-button {
+  display: block;
+  margin: 0 auto;
+  width: 210px;
+  height: 50px;
+  position: relative;
+  background: #1B9CFF;
+  border-radius: 4px;
+  font-size: 20px;
+  text-align: center;
+  font-weight: 600;
+  line-height: 25px;
+  padding: 14px 15px 10px;
+  color: #ffffff;
   text-decoration: none;
-  background-color: transparent;
-  border: 1px solid white;
-  color: white;
+  box-sizing: border-box;
 }
 
 #logo {
   width: 120px;
 }
 
-h2 a:hover {
-  border: 3px solid white;
+.about-team {
+  display: block;
+  position: relative;
+  width: 100%;
+  text-align: center;
+  color: #444444;
+  font-weight: 300;
+  margin-bottom: 80px;
+  padding: 0;
+}
+
+.about-team h3 {
+  font-size: 46px;
+  text-align: center;
+  line-height: 60px;
+  margin: 60px 30px;
+  font-weight: 300;
+  padding: 0;
+}
+
+.team-container {
+  width: 100%;
+  min-width: 320px;
+  max-width: 990px;
+  min-height: 220px;
+  margin: 0 auto;
+  padding: 0;
+}
+
+.team-member {
+  display: inline-block;
+  position: relative;
+  margin: 0 auto;
+  padding: 30px 60px;
+  box-sizing: border-box;
+  min-height: 220px;
+  width: 320px;
+  cursor: pointer;
+}
+
+.team-member .member-pic {
+  width: 140px;
+  height: 140px;
+  border-radius: 100%;
+  overflow: hidden;
+  text-align: center;
+  margin: 0 auto;
+  position: relative;
+}
+
+.team-member .member-pic img {
+  display: block;
+  width: 100%;
+  height: auto;
+  margin: 0 auto;
+}
+
+.team-member .member-pic .pic-rollover {
+  display: block;
+  opacity: 0;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  text-align: center;
+  overflow: hidden;
+  background: rgba(0,0,0,0.65);
+  transition: opacity 0.2s ease-out;
+}
+
+.team-member .member-pic .pic-rollover .icon {
+  display: block;
+  width: 32px;
+  height: 32px;
+  position: absolute;
+  bottom: -32px;
+  left: 50%;
+  margin: 0 0 0 -16px;
+  fill: #fff;
+  transition: bottom 0.4s ease-out;
+}
+
+.team-member .member-pic:hover .pic-rollover {
+  opacity: 1;
+}
+.team-member .member-pic .pic-rollover:hover .icon {
+  bottom: 12px;
+}
+
+.team-member .person-name {
+  color: #444444;
+  display: block;
+  width: 100%;
+  height: 36px;
+  font-size: 26px;
+  text-align: center;
+  text-decoration: none;
+  padding: 20px 0 5px;
+}
+.team-member .person-position {
+  color: #939393;
+  display: block;
+  width: 100%;
+  font-size: 14px;
+  height: 18px;
+  text-align: center;
+  text-decoration: none;
+  padding: 0;
+  text-transform: uppercase;
+  letter-spacing: 1px;
 }
 
 .footer {
-  position: absolute;
-  bottom: 0px;
-  background-color: rgba(0,0,10,0.5);
+  position: relative;
+  bottom: 0;
+  background-color: #1B9CFF;
   z-index: 11111 !important;
   width: 100%;
-  height: 76px;
+  min-width: 320px;
+  box-sizing: border-box;
+  padding: 25px 20px 23px;
   text-align: center;
-}
-
-.footer-text {
-  padding-top: 22px;
-  font-size: 22px;
+  min-height: 80px;
 }
 
 .footer a {
   text-decoration: none;
   color: white;
-  font-weight: normal;
+  font-weight: 300;
+  font-size: 18px;
+  padding: 6px 12px;
+  box-sizing: border-box;
+  display: block;
+  width: 100%;
 }
 
-.footer span {
+.footer a:hover {
+  text-decoration: underline;
+}
+
+.footer .logo-mini {
+  display: none;
+  width: 24px; 
+  height: 24px;
+  margin: 0 24px -5px;
+  fill: #ffffff;
+}
+
+.footer .links-separator {
   padding: 0 8px;
+  display: none;
 }
 
-
-/* ----------- iPhone 4 and 4S ----------- */
-
-
-/* Portrait */
-@media only screen 
-  and (min-device-width: 320px) 
-  and (max-device-width: 480px)
-  and (-webkit-min-device-pixel-ratio: 2)
-  and (orientation: portrait) {
-
-    #logo { width: 180px; }
-    .lead { max-width: 480px; font-size: 52px; padding: 100px 0 140px 0; }
-    h2 a { font-size: 48px; padding-top: 16px;  padding-bottom: 20px; }
-    .footer { height: 140px; font-size: 46px; }
-    .footer-text { padding-top: 38px; }
-
+@media all and (min-width: 320px) { 
+	body {
+		padding-bottom: 0;
+	}
+	.lead {
+	  padding: 20px 30px 40px;
+	  font-size: 24px;
+	  line-height: 32px;
+	}
+	.team-member .member-pic .pic-rollover {
+		display: none;
+	}
+	.footer {
+		position: relative;
+	}
+	.footer .links-separator, .footer .logo-mini {
+		display:none;
+	}
+	.footer a {
+		padding: 6px 12px;
+		display: block;
+		width: 100%;
+	}
 }
 
-/* Landscape */
-@media only screen 
-  and (min-device-width: 320px) 
-  and (max-device-width: 480px)
-  and (-webkit-min-device-pixel-ratio: 2)
-  and (orientation: landscape) {
-
-    .lead { padding: 25px 0 60px 0; font-size: 42px; }
-    h2 a { font-size: 42px; }
-    .footer { font-size: 32px; }
-    .footer-text { padding-top: 16px; }
-
+@media all and (min-width: 580px) { 
+	body {
+		padding-bottom: 0;
+	}
+	.lead {
+	  padding: 20px 30px 40px;
+	  font-size: 28px;
+	  line-height: 32px;
+	}
+	.team-member .member-pic .pic-rollover {
+		display: none;
+	}
+	.footer {
+		position: relative;
+	}
+	.footer .links-separator, .footer .logo-mini {
+		display:none;
+	}
+	.footer a {
+		padding: 0 12px;
+		display: inline-block;
+		width: auto;
+	}
 }
-
-/* ----------- iPhone 5 and 5S ----------- */
-
-/* Portrait */
-@media only screen 
-  and (min-device-width: 320px) 
-  and (max-device-width: 568px)
-  and (-webkit-min-device-pixel-ratio: 2)
-  and (orientation: portrait) {
-
-    #logo { width: 180px; }
-    .lead { max-width: 480px; font-size: 52px; padding: 100px 0 140px 0; }
-    h2 a { font-size: 48px; padding-top: 16px;  padding-bottom: 20px; }
-    .footer { height: 140px; font-size: 46px; }
-    .footer-text { padding-top: 38px; }
-
+@media all and (min-width: 750px) {
+	body {
+		padding-bottom: 80px;
+	}
+	.lead {
+	  padding: 20px 30px 40px;
+	  font-size: 28px;
+	  line-height: 32px;
+	}
+	.team-member .member-pic .pic-rollover {
+		display: none;
+	}
+	.footer {
+		position: fixed;
+	}
+	.footer .links-separator, .footer .logo-mini {
+		display: inline-block;
+	}
+	.footer a {
+		padding: 0;
+		display: inline-block;
+		width: auto;
+	}
 }
-
-/* Landscape */
-@media only screen 
-  and (min-device-width: 320px) 
-  and (max-device-width: 568px)
-  and (-webkit-min-device-pixel-ratio: 2)
-  and (orientation: landscape) {
-
-    #logo { width: 100px; }
-    .lead { padding: 25px 0 60px 0; font-size: 36px; max-width: 560px; }
-    h2 a { font-size: 32px; }
-    .footer { font-size: 28px; }
-    .footer-text { padding-top: 16px; }
-
-}
-
-/* ----------- iPhone 6 ----------- */
-
-
-/* Landscape */
-@media only screen 
-  and (min-device-width: 375px) 
-  and (max-device-width: 667px) 
-  and (-webkit-min-device-pixel-ratio: 2)
-  and (orientation: landscape) { 
-
-    #logo { width: 100px; }
-    .lead { padding: 25px 0 60px 0; font-size: 36px; max-width: 560px; }
-    h2 a { font-size: 32px; }
-    .footer { font-size: 26px; }
-    .footer-text { padding-top: 20px; }
-
-}
-
-/* ----------- iPhone 6+ ----------- */
-
-
-/* Landscape */
-@media only screen 
-  and (min-device-width: 414px) 
-  and (max-device-width: 736px) 
-  and (-webkit-min-device-pixel-ratio: 3)
-  and (orientation: landscape) { 
-
-    #logo { width: 100px; }
-    .lead { padding: 25px 0 60px 0; font-size: 36px; max-width: 560px; }
-    h2 a { font-size: 32px; }
-    .footer { font-size: 26px; }
-    .footer-text { padding-top: 20px; }
-
-}
-
-/* Desktop */
-@media (max-width: 1366px) {
-
-    #logo { width: 90px; }
-    .lead { max-width: 500px; font-size: 30px; padding: 25px 0 70px 0; }
-    h2 a { font-size: 24px; padding: 8px 50px 12px 50px; }
-    .footer { height: 76px; font-size: 24px; }
-    .footer-text { padding-top: 22px; }
-
-}
-
-@media (max-width: 640px) {
-
-    #logo { width: 90px; }
-    .lead { max-width: 500px; font-size: 20px; padding: 25px 40px 30px 40px; }
-    h2 a { font-size: 20px; padding: 8px 50px 12px 50px; }
-    .footer { height: 76px; font-size: 18px; }
-    .footer-text { padding: 16px; }
-
+@media all and (min-width: 1024px) {
+	body {
+		padding-bottom: 80px;
+	}
+	.lead {
+	  padding: 50px 30px 90px;
+	  font-size: 46px;
+	  line-height: 59px;
+	}
+	.team-member .member-pic .pic-rollover {
+		display: block;
+	}
+	.team-member .member-pic .pic-rollover {
+		display: block;
+	}
+	.footer {
+		position: fixed;
+	}
+	.footer .links-separator, .footer .logo-mini {
+		display: inline-block;
+	}
+	.footer a {
+		padding: 0;
+		display: inline-block;
+		width: auto;
+	}
 }
